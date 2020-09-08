@@ -1,5 +1,5 @@
 # fundamentos-JS
 # EVENT LOOP
 <div align="center">
-  <img src="./src/event-loop.jpg">
+  <img src="./assets/event-loop.jpg">
 </div>
