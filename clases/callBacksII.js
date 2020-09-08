@@ -21,7 +21,7 @@ function obtenerPersonaje (pId) {
     $.get(chatr, OPTS, function (dataChacter) {
       resolve(dataChacter)
     })
-    .fail(() => reject(id))
+    .fail(() => reject(pId))
   })
  
 }
@@ -54,9 +54,10 @@ function onError (id) {
 //   })
 //   .catch(onError)
 
+ 
 
-
-  ////OBTENER  PERSONAJES en orden a la peticion al encadenar los callback
+//OBTENER  PERSONAJES en orden a la peticion al encadenar los promises
+// (PETICION EN SERIE )
 
 obtenerPersonaje(1)
 .then( function(personaje1) {
@@ -88,3 +89,34 @@ obtenerPersonaje(1)
 })
 .catch(onError)
 
+//OBTENER  PERSONAJES en orden con una peticion en paralelo
+
+// ONLY WITH PROMISE
+
+let ids = [1,2,3,4,5,6,7,8,9];
+
+let promesas = ids.map( e => obtenerPersonaje(e) )
+
+Promise
+  .all(promesas)
+  .then(personajes => {
+    console.log('Promises')
+    console.log(personajes)
+  })
+  .catch(onError)
+
+// ASYNC AWAIT
+
+async function obtenterPersonajes(){
+  let ids = [11,12,13,14,15,16,18,19];
+  let promesas = ids.map( e => obtenerPersonaje(e) )
+
+  try {
+    let personajes = await Promise.all(promesas)
+      console.log('asyncAwait')
+      console.log(personajes)
+  } catch(id) {
+    onError(id)
+  }
+}
+obtenterPersonajes()
