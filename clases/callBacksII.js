@@ -35,19 +35,21 @@ function onError (id) {
 // obtenerPersonaje(1)
 //   .then( function(personaje) {
 //     console.log(`Hola yo soy el personaje 1, ${personaje.name}`)
-//     return obtenerPersonaje(2)
 //   })
 //   .catch(onError)
+
 // obtenerPersonaje(2)
 //   .then( function(personaje) {
 //     console.log(`Hola yo soy el personaje 2, ${personaje.name}`)
 //   })
 //   .catch(onError)
+
 // obtenerPersonaje(3)
 //   .then( function(personaje) {
 //     console.log(`Hola yo soy el personaje 3, ${personaje.name}`)
 //   })
 //   .catch(onError)
+
 // obtenerPersonaje(4)
 //   .then( function(personaje) {
 //     console.log(`Hola yo soy el personaje 4, ${personaje.name}`)
